@@ -29,5 +29,10 @@ namespace AzureHomeworkProject.Repository.Implementation
         {
             return _context.Comments.ToListAsync();
         }
+
+        public Task<List<CommentModel>> GetCommentsByLanguage(string iSOName)
+        {
+            return _context.Comments.Where(x => x.ISOName == iSOName).ToListAsync();
+        }
     }
 }

@@ -7,5 +7,7 @@ namespace AzureHomeworkProject.Repository.Abstract
         Task<CommentModel> CreateComment(CommentModel comment);
         Task<CommentModel?> GetComment(int commentId);
         Task<List<CommentModel>> GetComments();
+        Task<List<CommentModel>> GetCommentsByLanguage(string iSOName);
+
     }
 }

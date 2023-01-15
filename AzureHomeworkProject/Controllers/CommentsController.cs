@@ -26,6 +26,14 @@ namespace AzureHomeworkProject.Controllers
             return Ok((await _commentService.GetComments())!.Data);
         }
 
+        [HttpGet("list/{iSOName}")]
+        [ProducesDefaultResponseType(typeof(CommentListDto))]
+        [ProducesErrorResponseType(typeof(GenericErrorDto))]
+        public async Task<ActionResult<CommentListDto>> GetComments(string iSOName)
+        {
+            return Ok((await _commentService.GetCommentsByLanguage(iSOName))!.Data);
+        }
+
         [HttpGet("{id}")]
         [ProducesDefaultResponseType(typeof(CommentDto))]
         [ProducesErrorResponseType(typeof(GenericErrorDto))]

@@ -47,5 +47,11 @@ namespace AzureHomeworkProject.Business.Implementation
             var result = await _commentRepository.GetComments();
             return new SuccessDataResult<CommentListDto>(new(result.Select(x => (CommentDto)x).ToList()));
         }
+
+        public async Task<DataResult<CommentListDto>> GetCommentsByLanguage(string iSOName)
+        {
+            var result = await _commentRepository.GetCommentsByLanguage(iSOName);
+            return new SuccessDataResult<CommentListDto>(new(result.Select(x => (CommentDto)x).ToList()));
+        }
     }
 }
